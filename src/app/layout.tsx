@@ -1,0 +1,24 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin", "cyrillic"] });
+
+export const metadata: Metadata = {
+  title: "Ceresit Mongolia - Барилгын химийн бүтээгдэхүүн",
+  description: "Ceresit - Ирээдүйн үеийн төлөө барилгын шийдэл. Барилгын химийн бүтээгдэхүүн, плитан цавуу, фасад бүрээс, ус тусгаарлагч.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="mn">
+      <body className={inter.className}>
+        {children}
+      </body>
+    </html>
+  );
+}
