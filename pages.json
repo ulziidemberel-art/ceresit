@@ -1,0 +1,58 @@
+[
+  {
+    "section": "home",
+    "name": "Нүүр хуудас",
+    "slug": "home",
+    "description": "Ceresit Mongolia - Барилгын химийн бүтээгдэхүүн",
+    "content": "<h1>Ceresit Mongolia</h1><p>Ирээдүйн үеийн төлөө барилгын шийдэл. Барилгын химийн бүтээгдэхүүн, плитан цавуу, фасад бүрээс, ус тусгаарлагч.</p>"
+  },
+  {
+    "section": "about",
+    "name": "Бидний тухай",
+    "slug": "about",
+    "description": "Ceresit Mongolia компанийн танилцуулга",
+    "content": "<h2>Бидний тухай</h2><p>Ceresit Mongolia нь барилгын химийн бүтээгдэхүүний зах зээлд тэргүүлэгч компани юм. Бид плитан цавуу, фасад бүрээс, ус тусгаарлагч болон бусад барилгын химийн бүтээгдэхүүнийг нийлүүлдэг.</p>"
+  },
+  {
+    "section": "services",
+    "name": "Үйлчилгээ",
+    "slug": "services",
+    "description": "Ceresit Mongolia-ийн үйлчилгээ",
+    "content": "<h2>Үйлчилгээ</h2><p>Бид таны барилгын төслийг амжилттай хэрэгжүүлэхэд шаардлагатай бүх төрлийн дэмжлэг үзүүлдэг.</p>"
+  },
+  {
+    "section": "contact",
+    "name": "Холбоо барих",
+    "slug": "contact",
+    "description": "Ceresit Mongolia-тай холбоо барих",
+    "content": "<h2>Холбоо барих</h2><p>Бидэнтэй холбоо барина уу.</p>"
+  },
+  {
+    "section": "portfolio",
+    "name": "Бүтээгдэхүүн",
+    "slug": "portfolio",
+    "description": "Ceresit бүтээгдэхүүний каталог",
+    "content": "<h2>Бүтээгдэхүүн</h2><p>Бидний бүтээгдэхүүнүүд.</p>"
+  },
+  {
+    "section": "team",
+    "name": "Баг",
+    "slug": "team",
+    "description": "Ceresit Mongolia-ийн багийн гишүүд",
+    "content": "<h2>Багийн гишүүд</h2><p>Манай мэргэжлийн баг.</p>"
+  },
+  {
+    "section": "gallery",
+    "name": "Галерей",
+    "slug": "gallery",
+    "description": "Ceresit Mongolia-ийн зургийн цомог",
+    "content": "<h2>Галерей</h2><p>Бидний ажлууд.</p>"
+  },
+  {
+    "section": "blog",
+    "name": "Мэдээ",
+    "slug": "blog",
+    "description": "Ceresit Mongolia-ийн мэдээ, зөвлөгөө",
+    "content": "<h2>Мэдээ</h2><p>Сүүлийн үеийн мэдээ, зөвлөгөө.</p>"
+  }
+]

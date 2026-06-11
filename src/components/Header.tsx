@@ -2,19 +2,17 @@
 
 import Link from "next/link";
 import { useState } from "react";
-
-const navItems = [
-  { label: "БҮТЭЭГДЭХҮҮН", href: "/portfolio" },
-  { label: "СИСТЕМ", href: "/services" },
-  { label: "ШИНЭЧЛЭЛТ", href: "/blog" },
-  { label: "ТЕХНИК", href: "/services" },
-  { label: "МЭРГЭЖИЛТЭН", href: "/team" },
-  { label: "ТОГТВОРТОЙ ХӨГЖИЛ", href: "/about" },
-  { label: "БИДНИЙ ТУХАЙ", href: "/about" },
-];
+import { useQuery } from "@apollo/client/react";
+import { GET_HEADER_MENU } from "@/lib/graphql/queries/cms";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const result = useQuery(GET_HEADER_MENU, {
+    variables: { language: "mn", kind: "header" },
+  });
+
+  const data = result.data as { cpMenus?: Array<{ _id: string; url: string; label: string }> } | undefined;
+  const navItems = data?.cpMenus || [];
 
   return (
     <header className="bg-[#0C0A09] border-b border-[#44403C]">
@@ -25,10 +23,10 @@ export default function Header() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
+            {navItems.map((item: any) => (
               <Link
-                key={item.href + item.label}
-                href={item.href}
+                key={item._id}
+                href={item.url}
                 className="text-sm font-bold text-[#FAFAF9] hover:text-[#E3000F] transition-colors duration-150"
               >
                 {item.label}
@@ -52,10 +50,10 @@ export default function Header() {
 
         {mobileMenuOpen && (
           <nav className="lg:hidden py-4 border-t border-[#44403C]">
-            {navItems.map((item) => (
+            {navItems.map((item: any) => (
               <Link
-                key={item.href + item.label}
-                href={item.href}
+                key={item._id}
+                href={item.url}
                 className="block py-2 text-sm font-bold text-[#FAFAF9] hover:text-[#E3000F] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >

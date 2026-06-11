@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,4902,e=>{"use strict";var t,l=e.i(24720);e.s(["SimulatePreloadedQuery",0,o=>(t||(t=l.lazy(()=>e.A(39615))),l.createElement(t,{...o})),"built_for_browser",0,!0])},39615,e=>{e.v(t=>Promise.all(["static/chunks/3es8ua-oqdbf5.js"].map(t=>e.l(t))).then(()=>t(49815)))}]);

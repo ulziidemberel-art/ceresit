@@ -13,7 +13,7 @@ const spotlightProducts = [
   { name: "CE 60", desc: "Мэдрэмжтэй уян чигжээс" },
 ];
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="min-h-screen bg-[#0C0A09]">
       <Header />

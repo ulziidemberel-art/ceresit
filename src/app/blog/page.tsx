@@ -1,14 +1,19 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Link from "next/link";
+import { getClient } from "@/lib/apollo-client";
+import { GET_POSTS } from "@/lib/graphql/queries/cms";
 
-const posts = [
-  { title: "CT 17 шинэ технологи", date: "2024.06.10", excerpt: "Шинэ грунтын технологийн талаар" },
-  { title: "Fibre Force танилцуулга", date: "2024.06.08", excerpt: "Уян хатан бүтэцтэй цавуу" },
-  { title: "CE 60 хэрэглээ", date: "2024.06.05", excerpt: "Шинэ чигжээсний давуу тал" },
-  { title: "Тогтвортой барилга", date: "2024.06.01", excerpt: "Байгальд ээлтэй бүтээгдэхүүн" },
-];
+export default async function BlogPage() {
+  const result = await getClient().query({
+    query: GET_POSTS,
+    variables: { language: "mn", status: "published" },
+    context: { revalidate: 60 },
+  });
 
-export default function BlogPage() {
+  const data = result.data as { cpPosts?: Array<{ _id: string; slug: string; title: string; excerpt: string }> } | undefined;
+  const posts = data?.cpPosts || [];
+
   return (
     <div className="min-h-screen bg-[#0C0A09]">
       <Header />
@@ -24,16 +29,16 @@ export default function BlogPage() {
         <section className="py-20 px-10">
           <div className="max-w-[1440px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {posts.map((post) => (
-                <div
-                  key={post.title}
-                  className="bg-[#0C0A09] border border-[#44403C] rounded-2xl p-6 hover:border-[#E3000F] hover:shadow-[0_0_20px_rgba(227,0,15,0.2)] transition-all"
+              {posts.map((post: any) => (
+                <Link
+                  key={post._id}
+                  href={`/blog/${post.slug}`}
+                  className="bg-[#0C0A09] border border-[#44403C] rounded-2xl p-6 hover:border-[#E3000F] hover:shadow-[0_0_20px_rgba(227,0,15,0.2)] transition-all block"
                 >
                   <div className="h-48 bg-[#292524] rounded-xl mb-4" />
-                  <div className="text-sm text-[#78716C] mb-2">{post.date}</div>
                   <h3 className="text-xl font-bold text-white mb-2">{post.title}</h3>
                   <p className="text-[#A8A29E]">{post.excerpt}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
