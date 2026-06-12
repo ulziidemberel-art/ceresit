@@ -19,20 +19,21 @@ export default async function Home() {
       <Header />
 
       <main>
-        {/* Hero Section */}
-        <section className="relative h-[500px] flex items-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1C1917] to-[#0C0A09]">
-            <div className="absolute inset-0 opacity-30"
+        {/* Hero Section — Pencil дизайнаар */}
+        <section className="relative min-h-[600px] flex items-center overflow-hidden">
+          <div className="absolute inset-0">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: 'url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1440")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
               }}
             />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0C0A09]/95 via-[#0C0A09]/70 to-transparent" />
           </div>
-          <div className="relative max-w-[1440px] mx-auto px-10 w-full">
-            <div className="max-w-2xl">
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+
+          <div className="relative max-w-[1440px] mx-auto px-10 w-full py-32">
+            <div className="max-w-3xl">
+              <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-[1.1]">
                 ИРЭЭДҮЙН ҮЕИЙН ТӨЛӨӨ
                 <br />
                 БАРИЛГЫН ШИЙДЭЛ
@@ -40,13 +41,13 @@ export default async function Home() {
               <p className="text-xl text-[#A8A29E] mb-4">
                 Манай шилдэг бүтээгдэхүүнүүдтэй танилц.
               </p>
-              <p className="text-lg text-[#A8A29E] mb-8">
+              <p className="text-2xl text-[#A8A29E]">
                 Together, We Build For Future Generations
               </p>
             </div>
-            
+
             {/* Ceresit 120 Logo */}
-            <div className="absolute bottom-8 right-10">
+            <div className="absolute bottom-16 right-10">
               <div className="text-white">
                 <div className="text-5xl font-bold tracking-tight">Ceresit</div>
                 <div className="flex items-end gap-2 mt-1">
@@ -72,14 +73,15 @@ export default async function Home() {
                 <Link
                   key={product.name}
                   href="/portfolio"
-                  className="bg-[#1C1917] border border-[#44403C] rounded-2xl p-6 hover:border-[#E3000F] transition-colors block"
+                  className="bg-[#1C1917] border border-[#44403C] rounded-2xl overflow-hidden hover:border-[#E3000F] transition-colors block"
                 >
-                  <div className="h-48 bg-[#292524] rounded-xl mb-4">
-                    <div className="w-full h-full flex items-center justify-center text-[#78716C]">
-                      {product.name}
-                    </div>
+                  <div className="h-56 bg-[#292524] flex items-center justify-center">
+                    <span className="text-3xl font-bold text-[#44403C]">{product.name}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white">{product.name}</h3>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-white">{product.name}</h3>
+                    <p className="text-[#A8A29E] mt-2">{product.desc}</p>
+                  </div>
                 </Link>
               ))}
             </div>
@@ -109,11 +111,11 @@ export default async function Home() {
           <div className="max-w-[1440px] mx-auto">
             <h2 className="text-3xl font-bold text-white mb-12">МАНАЙ ШИНЭЧЛЭЛТҮҮДИЙГ НЭЭ</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-[#0C0A09] border-2 border-[#E3000F] rounded-2xl p-8 shadow-[0_0_20px_rgba(227,0,15,0.3)]">
+              <div className="bg-[#0C0A09] border border-[#44403C] rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-white mb-4">CT 17</h3>
                 <p className="text-[#A8A29E]">Харагдахгүй чадал, харагдах үр дүн.</p>
               </div>
-              <div className="bg-[#0C0A09] border-2 border-[#E3000F] rounded-2xl p-8 shadow-[0_0_20px_rgba(227,0,15,0.3)]">
+              <div className="bg-[#0C0A09] border border-[#44403C] rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-white mb-4">Fibre Force</h3>
                 <p className="text-[#A8A29E]">Ультра тэсвэртэй бүрээс.</p>
               </div>
@@ -127,7 +129,10 @@ export default async function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               ХАМТДАА ИРЭЭДҮЙН ҮЕИЙН ТӨЛӨӨ БАРЬЯ
             </h2>
-            <p className="text-xl text-[#FECACA] max-w-3xl">
+            <p className="text-2xl text-[#FECACA] max-w-3xl">
+              Together, We Build
+            </p>
+            <p className="text-lg text-white/90 mt-4 max-w-3xl">
               Бид ирээдүйн үеийнхний төлөө барилга барихад шаардлагатай шилдэг бүтээгдэхүүнүүдийг бүтээж байна.
             </p>
           </div>
@@ -135,7 +140,7 @@ export default async function Home() {
 
         {/* Contact CTA */}
         <section className="py-20 px-10">
-          <div className="max-w-[1440px] mx-auto text-center">
+          <div className="max-w-[1440px] mx-auto">
             <h2 className="text-3xl font-bold text-white mb-4">АСУУЛТ БАЙНА УУ?</h2>
             <p className="text-lg text-[#A8A29E] mb-8">
               Бид таны асуултад хариулахдаа баяртай байх болно.

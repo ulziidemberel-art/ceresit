@@ -2,15 +2,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
-const designs = [
-  { src: "/images/designs/gPpzk.jpeg", label: "Нүүр хуудас" },
-  { src: "/images/designs/SmnnL.jpeg", label: "Бидний тухай" },
-  { src: "/images/designs/Pn4II.jpeg", label: "Үйлчилгээ" },
-  { src: "/images/designs/buOg3.jpeg", label: "Мэдээ" },
-  { src: "/images/designs/E0DcZa.jpeg", label: "Холбоо барих" },
-  { src: "/images/designs/B9jWbI.jpeg", label: "Галерей" },
-  { src: "/images/designs/N5B54.jpeg", label: "Баг" },
-  { src: "/images/designs/ORfzy.jpeg", label: "Бүтээгдэхүүн" },
+const projects = [
+  { src: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800", alt: "Орон сууцны төсөл 1" },
+  { src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800", alt: "Орон сууцны төсөл 2" },
+  { src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800", alt: "Барилгын төсөл 3" },
+  { src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800", alt: "Барилгын төсөл 4" },
+  { src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800", alt: "Барилгын төсөл 5" },
+  { src: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800", alt: "Барилгын төсөл 6" },
+  { src: "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?w=800", alt: "Барилгын төсөл 7" },
+  { src: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800", alt: "Барилгын төсөл 8" },
 ];
 
 export default function GalleryPage() {
@@ -19,40 +19,43 @@ export default function GalleryPage() {
       <Header />
 
       <main>
-        <section className="py-24 px-10 bg-[#1C1917]">
-          <div className="max-w-[1440px] mx-auto">
-            <h1 className="text-5xl font-bold text-white mb-4">ГАЛЕРЕЙ</h1>
-            <p className="text-xl text-[#A8A29E]">Pencil-д зурсан бүх дизайн зургууд.</p>
+        {/* Hero — Pencil дизайнаар */}
+        <section className="relative min-h-[500px] flex items-center overflow-hidden">
+          <div className="absolute inset-0">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: 'url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1440")',
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0C0A09]/95 via-[#0C0A09]/60 to-transparent" />
+          </div>
+
+          <div className="relative max-w-[1440px] mx-auto px-10 w-full py-32">
+            <div className="max-w-3xl">
+              <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">ГАЛЕРЕЙ</h1>
+              <p className="text-xl text-[#A8A29E]">Бидний хэрэгжүүлсэн төслүүдээс.</p>
+            </div>
           </div>
         </section>
 
+        {/* Gallery Grid — Pencil дизайнаар */}
         <section className="py-20 px-10">
           <div className="max-w-[1440px] mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {designs.map((design, i) => (
-                <a
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {projects.map((project, i) => (
+                <div
                   key={i}
-                  href={design.src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block bg-[#292524] border border-[#44403C] rounded-2xl overflow-hidden hover:border-[#E3000F] transition-colors"
+                  className="relative aspect-square bg-[#1C1917] border border-[#44403C] rounded-2xl overflow-hidden hover:border-[#E3000F] transition-colors"
                 >
-                  <div className="relative aspect-[4/3] bg-[#1C1917]">
-                    <Image
-                      src={design.src}
-                      alt={design.label}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                  <div className="p-5 border-t border-[#44403C]">
-                    <h3 className="text-lg font-bold text-white group-hover:text-[#E3000F] transition-colors">
-                      {design.label}
-                    </h3>
-                    <p className="text-sm text-[#A8A29E] mt-1">Бүрэн хэмжээнд үзэх</p>
-                  </div>
-                </a>
+                  <Image
+                    src={project.src}
+                    alt={project.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  />
+                </div>
               ))}
             </div>
           </div>

@@ -19,29 +19,43 @@ export default function PortfolioPage() {
       <Header />
 
       <main>
-        <section className="py-24 px-10 bg-[#1C1917]">
-          <div className="max-w-[1440px] mx-auto">
-            <h1 className="text-5xl font-bold text-white mb-4">БҮТЭЭГДЭХҮҮНИЙ КАТАЛОГ</h1>
-            <p className="text-xl text-[#A8A29E]">Бүх төрлийн барилгын химийн бүтээгдэхүүн.</p>
+        {/* Hero — Pencil дизайнаар */}
+        <section className="relative min-h-[500px] flex items-center overflow-hidden">
+          <div className="absolute inset-0">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: 'url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1440")',
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0C0A09]/95 via-[#0C0A09]/60 to-transparent" />
+          </div>
+
+          <div className="relative max-w-[1440px] mx-auto px-10 w-full py-32">
+            <div className="max-w-3xl">
+              <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">БҮТЭЭГДЭХҮҮНИЙ КАТАЛОГ</h1>
+              <p className="text-xl text-[#A8A29E]">Бүх төрлийн барилгын химийн бүтээгдэхүүн.</p>
+            </div>
           </div>
         </section>
 
+        {/* Portfolio Grid — Pencil дизайнаар */}
         <section className="py-20 px-10">
           <div className="max-w-[1440px] mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {products.map((product) => (
                 <Link
                   key={product.slug}
                   href={`/portfolio/${product.slug}`}
-                  className="bg-[#0C0A09] border border-[#44403C] rounded-2xl p-6 hover:border-[#E3000F] hover:shadow-[0_0_20px_rgba(227,0,15,0.2)] transition-all block"
+                  className="bg-[#0C0A09] border border-[#44403C] rounded-2xl overflow-hidden hover:border-[#E3000F] transition-all block"
                 >
-                  <div className="h-40 bg-[#292524] rounded-xl mb-4">
-                    <div className="w-full h-full flex items-center justify-center text-[#78716C] text-sm">
-                      {product.name}
-                    </div>
+                  <div className="h-40 bg-[#292524] flex items-center justify-center">
+                    <span className="text-xl font-bold text-[#44403C]">{product.name}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-white">{product.name}</h3>
-                  <p className="text-sm text-[#78716C]">{product.desc}</p>
+                  <div className="p-5">
+                    <h3 className="text-lg font-bold text-white">{product.name}</h3>
+                    <p className="text-sm text-[#78716C]">{product.desc}</p>
+                  </div>
                 </Link>
               ))}
             </div>
