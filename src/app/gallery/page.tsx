@@ -2,13 +2,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
-const images = [
-  { src: "/images/Screenshot 2026-06-10 124126.png", alt: "Ceresit зураг 1" },
-  { src: "/images/Screenshot 2026-06-10 124158.png", alt: "Ceresit зураг 2" },
-  { src: "/images/Screenshot 2026-06-10 124219.png", alt: "Ceresit зураг 3" },
-  { src: "/images/Screenshot 2026-06-10 124242.png", alt: "Ceresit зураг 4" },
-  { src: "/images/Screenshot 2026-06-10 124304.png", alt: "Ceresit зураг 5" },
-  { src: "/images/Screenshot 2026-06-10 124317.png", alt: "Ceresit зураг 6" },
+const designs = [
+  { src: "/images/designs/gPpzk.jpeg", label: "Нүүр хуудас" },
+  { src: "/images/designs/SmnnL.jpeg", label: "Бидний тухай" },
+  { src: "/images/designs/Pn4II.jpeg", label: "Үйлчилгээ" },
+  { src: "/images/designs/buOg3.jpeg", label: "Мэдээ" },
+  { src: "/images/designs/E0DcZa.jpeg", label: "Холбоо барих" },
+  { src: "/images/designs/B9jWbI.jpeg", label: "Галерей" },
+  { src: "/images/designs/N5B54.jpeg", label: "Баг" },
+  { src: "/images/designs/ORfzy.jpeg", label: "Бүтээгдэхүүн" },
 ];
 
 export default function GalleryPage() {
@@ -20,26 +22,37 @@ export default function GalleryPage() {
         <section className="py-24 px-10 bg-[#1C1917]">
           <div className="max-w-[1440px] mx-auto">
             <h1 className="text-5xl font-bold text-white mb-4">ГАЛЕРЕЙ</h1>
-            <p className="text-xl text-[#A8A29E]">Pencil-д зурсан дизайн зургууд.</p>
+            <p className="text-xl text-[#A8A29E]">Pencil-д зурсан бүх дизайн зургууд.</p>
           </div>
         </section>
 
         <section className="py-20 px-10">
           <div className="max-w-[1440px] mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {images.map((image, i) => (
-                <div
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {designs.map((design, i) => (
+                <a
                   key={i}
-                  className="bg-[#292524] border border-[#44403C] rounded-2xl overflow-hidden h-72 hover:border-[#E3000F] transition-colors"
+                  href={design.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-[#292524] border border-[#44403C] rounded-2xl overflow-hidden hover:border-[#E3000F] transition-colors"
                 >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={800}
-                    height={600}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                  <div className="relative aspect-[4/3] bg-[#1C1917]">
+                    <Image
+                      src={design.src}
+                      alt={design.label}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="p-5 border-t border-[#44403C]">
+                    <h3 className="text-lg font-bold text-white group-hover:text-[#E3000F] transition-colors">
+                      {design.label}
+                    </h3>
+                    <p className="text-sm text-[#A8A29E] mt-1">Бүрэн хэмжээнд үзэх</p>
+                  </div>
+                </a>
               ))}
             </div>
           </div>
