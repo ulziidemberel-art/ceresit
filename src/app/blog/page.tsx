@@ -19,7 +19,7 @@ export default async function BlogPage() {
       <Header />
 
       <main>
-        {/* Hero — Pencil дизайнаар */}
+        {/* Hero */}
         <section className="relative min-h-[500px] flex items-center overflow-hidden">
           <div className="absolute inset-0">
             <div
@@ -33,28 +33,58 @@ export default async function BlogPage() {
 
           <div className="relative max-w-[1440px] mx-auto px-10 w-full py-32">
             <div className="max-w-3xl">
+              <p className="text-[#E3000F] font-bold tracking-widest uppercase mb-4">Мэдээлэл</p>
               <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">МЭДЭЭ МЭДЭЭЛЭЛ</h1>
               <p className="text-xl text-[#A8A29E]">Шинэ бүтээгдэхүүн, технологи, төслийн талаарх мэдээлэл.</p>
             </div>
           </div>
         </section>
 
-        {/* Blog Grid — Pencil дизайнаар */}
+        {/* Blog Grid */}
         <section className="py-20 px-10">
           <div className="max-w-[1440px] mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {posts.map((post: any) => (
-                <Link
-                  key={post._id}
-                  href={`/blog/${post.slug}`}
-                  className="bg-[#0C0A09] border border-[#44403C] rounded-2xl overflow-hidden hover:border-[#E3000F] transition-all block"
+            {posts.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {posts.map((post: any) => (
+                  <Link
+                    key={post._id}
+                    href={`/blog/${post.slug}`}
+                    className="bg-[#0C0A09] border border-[#44403C] rounded-2xl overflow-hidden hover:border-[#E3000F] transition-all block"
+                  >
+                    <div className="h-56 bg-[#292524]" />
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-white mb-2">{post.title}</h3>
+                      <p className="text-[#A8A29E]">{post.excerpt}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-20">
+                <p className="text-[#A8A29E] text-lg">Одоогоор мэдээ нийтлэгдээгүй байна.</p>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Categories */}
+        <section className="py-20 px-10 bg-[#1C1917]">
+          <div className="max-w-[1440px] mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-12">Агуулгын ангилал</h2>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                "Бүтээгдэхүүн танилцуулга",
+                "Технологи",
+                "Төслийн тайлан",
+                "Зөвлөгөө",
+              ].map((category, i) => (
+                <div
+                  key={i}
+                  className="bg-[#0C0A09] border border-[#44403C] rounded-2xl p-6 text-center hover:border-[#E3000F] transition-colors"
                 >
-                  <div className="h-56 bg-[#292524]" />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-2">{post.title}</h3>
-                    <p className="text-[#A8A29E]">{post.excerpt}</p>
-                  </div>
-                </Link>
+                  <span className="text-base font-bold text-white">{category}</span>
+                </div>
               ))}
             </div>
           </div>

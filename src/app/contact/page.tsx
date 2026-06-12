@@ -7,7 +7,7 @@ export default function ContactPage() {
       <Header />
 
       <main>
-        {/* Hero — Pencil дизайнаар улаан/оранж өнгө */}
+        {/* Hero */}
         <section className="relative min-h-[500px] flex items-center overflow-hidden">
           <div className="absolute inset-0">
             <div
@@ -21,13 +21,14 @@ export default function ContactPage() {
 
           <div className="relative max-w-[1440px] mx-auto px-10 w-full py-32">
             <div className="max-w-3xl">
+              <p className="text-white/80 font-bold tracking-widest uppercase mb-4">Холбоо барих</p>
               <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">ХОЛБОО БАРИХ</h1>
               <p className="text-xl text-white/90">Та манай багтай холбогдохыг хүсвэл доорх мэдээллийг ашиглана уу.</p>
             </div>
           </div>
         </section>
 
-        {/* Contact Content — Pencil дизайнаар */}
+        {/* Contact Content */}
         <section className="py-20 px-10">
           <div className="max-w-[1440px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -54,6 +55,12 @@ export default function ContactPage() {
                       Мишээл барилгын их дэлгүүр, 2 давхар, 48 тоот шоурүүм
                     </div>
                   </div>
+
+                  <div className="pt-6 border-t border-[#44403C]">
+                    <div className="text-[#78716C] mb-2">Ажлын цаг</div>
+                    <div className="text-white">Даваа - Баасан: 09:00 - 18:00</div>
+                    <div className="text-white">Бямба - Ням: Амарна</div>
+                  </div>
                 </div>
               </div>
 
@@ -62,12 +69,22 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-bold text-white mb-8">Мессеж илгээх</h2>
 
                 <form className="space-y-5">
-                  <div>
-                    <label className="block text-[#78716C] mb-2">Нэр</label>
-                    <input
-                      type="text"
-                      className="w-full bg-[#1C1917] border border-[#44403C] rounded-lg px-4 py-3 text-white focus:border-[#E3000F] focus:outline-none transition-colors"
-                    />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-[#78716C] mb-2">Нэр</label>
+                      <input
+                        type="text"
+                        className="w-full bg-[#1C1917] border border-[#44403C] rounded-lg px-4 py-3 text-white focus:border-[#E3000F] focus:outline-none transition-colors"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[#78716C] mb-2">Утас</label>
+                      <input
+                        type="tel"
+                        className="w-full bg-[#1C1917] border border-[#44403C] rounded-lg px-4 py-3 text-white focus:border-[#E3000F] focus:outline-none transition-colors"
+                      />
+                    </div>
                   </div>
 
                   <div>
@@ -76,6 +93,16 @@ export default function ContactPage() {
                       type="email"
                       className="w-full bg-[#1C1917] border border-[#44403C] rounded-lg px-4 py-3 text-white focus:border-[#E3000F] focus:outline-none transition-colors"
                     />
+                  </div>
+
+                  <div>
+                    <label className="block text-[#78716C] mb-2">Сонголт</label>
+                    <select className="w-full bg-[#1C1917] border border-[#44403C] rounded-lg px-4 py-3 text-white focus:border-[#E3000F] focus:outline-none transition-colors">
+                      <option>Бүтээгдэхүүний талаар</option>
+                      <option>Захиалга хийх</option>
+                      <option>Техникийн зөвлөгөө</option>
+                      <option>Бусад</option>
+                    </select>
                   </div>
 
                   <div>
@@ -93,6 +120,20 @@ export default function ContactPage() {
                     Илгээх
                   </button>
                 </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Map Placeholder */}
+        <section className="py-20 px-10 bg-[#1C1917]">
+          <div className="max-w-[1440px] mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-8">Байршил</h2>
+            <div className="w-full h-96 bg-[#0C0A09] border border-[#44403C] rounded-2xl flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-4xl mb-4">📍</div>
+                <p className="text-[#A8A29E]">Мишээл барилгын их дэлгүүр, 2 давхар, 48 тоот</p>
+                <p className="text-[#78716C] text-sm mt-2">Хан-Уул дүүрэг, Улаанбаатар</p>
               </div>
             </div>
           </div>
