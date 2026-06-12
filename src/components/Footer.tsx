@@ -9,8 +9,8 @@ export default function Footer() {
     variables: { language: "mn", kind: "footer" },
   });
 
-  const data = result.data as { cpMenus?: Array<{ _id: string; url: string; label: string }> } | undefined;
-  const footerLinks = data?.cpMenus || [];
+  const data = result.data as { cpMenus?: Array<{ _id: string; url: string; label: string; order: number }> } | undefined;
+  const footerLinks = (data?.cpMenus || []).slice().sort((a, b) => a.order - b.order);
 
   return (
     <footer className="bg-black border-t border-[#44403C]">

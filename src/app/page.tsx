@@ -69,9 +69,10 @@ export default async function Home() {
             <h2 className="text-3xl font-bold text-white mb-12">БҮТЭЭГДЭХҮҮН ТАНИЛЦУУЛГА</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {spotlightProducts.map((product) => (
-                <div
+                <Link
                   key={product.name}
-                  className="bg-[#1C1917] border border-[#44403C] rounded-2xl p-6 hover:border-[#E3000F] transition-colors"
+                  href="/portfolio"
+                  className="bg-[#1C1917] border border-[#44403C] rounded-2xl p-6 hover:border-[#E3000F] transition-colors block"
                 >
                   <div className="h-48 bg-[#292524] rounded-xl mb-4">
                     <div className="w-full h-full flex items-center justify-center text-[#78716C]">
@@ -79,7 +80,7 @@ export default async function Home() {
                     </div>
                   </div>
                   <h3 className="text-xl font-bold text-white">{product.name}</h3>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

@@ -11,8 +11,8 @@ export default function Header() {
     variables: { language: "mn", kind: "header" },
   });
 
-  const data = result.data as { cpMenus?: Array<{ _id: string; url: string; label: string }> } | undefined;
-  const navItems = data?.cpMenus || [];
+  const data = result.data as { cpMenus?: Array<{ _id: string; url: string; label: string; order: number }> } | undefined;
+  const navItems = (data?.cpMenus || []).slice().sort((a, b) => a.order - b.order);
 
   return (
     <header className="bg-[#0C0A09] border-b border-[#44403C]">
