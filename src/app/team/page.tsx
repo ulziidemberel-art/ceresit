@@ -15,7 +15,7 @@ export default function TeamPage() {
       <Header />
 
       <main>
-        {/* Hero — Pencil дизайнаар */}
+        {/* Hero */}
         <section className="relative min-h-[500px] flex items-center overflow-hidden">
           <div className="absolute inset-0">
             <div
@@ -29,13 +29,14 @@ export default function TeamPage() {
 
           <div className="relative max-w-[1440px] mx-auto px-10 w-full py-32">
             <div className="max-w-3xl">
+              <p className="text-[#E3000F] font-bold tracking-widest uppercase mb-4">Манай баг</p>
               <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">МАНАЙ БАГ</h1>
               <p className="text-xl text-[#A8A29E]">Мэргэжлийн инженерүүд, зөвлөхүүд.</p>
             </div>
           </div>
         </section>
 
-        {/* Team Grid — Pencil дизайнаар */}
+        {/* Team Grid */}
         <section className="py-20 px-10">
           <div className="max-w-[1440px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -61,6 +62,22 @@ export default function TeamPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Contact CTA */}
+        <section className="py-20 px-10 bg-[#1C1917]">
+          <div className="max-w-[1440px] mx-auto text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">Бидэнтэй холбогдох</h2>
+            <p className="text-lg text-[#A8A29E] mb-8">
+              Төслийнхөө талаар манай багтай ярилцана уу.
+            </p>
+            <a
+              href="/contact"
+              className="inline-block bg-[#E3000F] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#FF3344] transition-colors"
+            >
+              Холбогдох
+            </a>
           </div>
         </section>
       </main>
